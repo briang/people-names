@@ -5,6 +5,7 @@ program=$(basename $0)
 if [[ "$1" == "" || "$2" != "" ]]  ; then
    echo "usage: $program file # sort file in-place"
 elif [[ -f "$1" ]] ; then
+    cp -a "$1" "$1.bak"
     sort -uo "$1" "$1"
 else
     echo "$program: $1 not found"
