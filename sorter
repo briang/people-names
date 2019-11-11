@@ -7,6 +7,7 @@ if [[ "$1" == "" || "$2" != "" ]]  ; then
 elif [[ -f "$1" ]] ; then
     cp -a "$1" "$1.bak"
     sort -uo "$1" "$1"
+    git diff "$1" | grep '^\+' | wc -l
 else
     echo "$program: $1 not found"
 fi
